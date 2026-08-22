@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  width: 100%;
+  height: 100%;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), sans-serif;
+  background-color: #f5f6f8;
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navbar {
+  max-width: 1920px;
+  width: 100%;
+  position: absolute;
+  margin: 0 auto;
+  background-color: black;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 0 40px;
+}
+
+.glass-effect {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  -webkit-backdrop-filter: blur(0.1px);
+  backdrop-filter: blur(0.1px);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden; /* Hides the blurred outer edges */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The blurred background layer */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/public/heroImage.png");
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(10px); /* Adjust pixel value for softness */
+  transform: scale(1.1); /* Prevents white bleeding around edges */
+  z-index: -1; /* Pushes the image behind text */
+}
+
+#video {
+  width: 100%;
+  height: 100%;
 }

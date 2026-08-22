@@ -7,7 +7,7 @@ import CardImage1 from "@/public/pexels-rachel-claire-5865195 1.png";
 
 export default function Featured() {
   return (
-    <div className="w-full h-auto relative">
+    <div id="featured" className="w-full h-auto relative">
       {/* banner image */}
       <div className="w-full h-full absolute top-0 left-0">
         <Image

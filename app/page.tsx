@@ -2,6 +2,7 @@ import Hero from "@/section/components/Hero";
 import Service from "@/section/components/Service"
 import Featured from "@/section/components/Featured";
 import Event from "@/section/components/Event"
+import Network from "@/section/components/Network"
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Service />
       <Featured />
       <Event />
+      <Network/>
     </div>
   );
 }

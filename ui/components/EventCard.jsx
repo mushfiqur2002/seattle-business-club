@@ -30,7 +30,7 @@ export default function EventCard({
   };
 
   return (
-    <div className="group w-full cursor-pointer sticky top-10 bg-[#1e1e1e]">
+    <div className="group w-full cursor-pointer sticky top-[120px] bg-[#1e1e1e]">
       <div className="w-full h-[400px] xl:h-[500px] 2xl:h-[650px] relative overflow-hidden bg-black">
         {/* Thumbnail Image */}
         <Image

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Logo from "@/public/Group 1.png";
+import Logo from "@/public/icons/Group 1.png";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/ui/components/Button";
@@ -41,7 +41,7 @@ export default function NavBar() {
             </li>
             <li>
               <Link
-                href="/"
+                href="#featured"
                 className="hover:text-white transition-colors duration-200"
               >
                 features
@@ -49,7 +49,7 @@ export default function NavBar() {
             </li>
             <li>
               <Link
-                href="/"
+                href="#event"
                 className="hover:text-white transition-colors duration-200"
               >
                 network events
@@ -99,7 +99,7 @@ export default function NavBar() {
             </li>
             <li onClick={() => setClicked(false)}>
               <Link
-                href="/"
+                href="#featured"
                 className="hover:text-white transition-colors duration-200"
               >
                 features
@@ -107,7 +107,7 @@ export default function NavBar() {
             </li>
             <li onClick={() => setClicked(false)}>
               <Link
-                href="/"
+                href="#event"
                 className="hover:text-white transition-colors duration-200"
               >
                 network events

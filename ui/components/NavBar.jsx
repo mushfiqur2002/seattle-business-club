@@ -4,6 +4,7 @@ import Logo from "@/public/icons/Group 1.png";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/ui/components/Button";
+import FlipText from "@/animation/FlipText";
 
 export default function NavBar() {
   const [clicked, setClicked] = useState(false);
@@ -36,7 +37,7 @@ export default function NavBar() {
                 href="#service"
                 className="hover:text-white transition-colors duration-200"
               >
-                services
+                <FlipText text={"service"} />
               </Link>
             </li>
             <li>
@@ -44,7 +45,7 @@ export default function NavBar() {
                 href="#featured"
                 className="hover:text-white transition-colors duration-200"
               >
-                features
+                <FlipText text={"features"} />
               </Link>
             </li>
             <li>
@@ -52,7 +53,7 @@ export default function NavBar() {
                 href="#event"
                 className="hover:text-white transition-colors duration-200"
               >
-                network events
+                <FlipText text={"network events"} />
               </Link>
             </li>
           </ul>
@@ -94,7 +95,7 @@ export default function NavBar() {
                 href="#service"
                 className="hover:text-white transition-colors duration-200"
               >
-                services
+                <FlipText text={"service"} />
               </Link>
             </li>
             <li onClick={() => setClicked(false)}>
@@ -102,7 +103,7 @@ export default function NavBar() {
                 href="#featured"
                 className="hover:text-white transition-colors duration-200"
               >
-                features
+                <FlipText text={"features"} />
               </Link>
             </li>
             <li onClick={() => setClicked(false)}>
@@ -110,7 +111,7 @@ export default function NavBar() {
                 href="#event"
                 className="hover:text-white transition-colors duration-200"
               >
-                network events
+                <FlipText text={"network events"} />
               </Link>
             </li>
           </ul>

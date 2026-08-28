@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Title from "../../ui/components/Title";
 import Button from "../../ui/components/Button";
@@ -7,8 +8,28 @@ import BannerImage from "../../public/shortHero.png";
 import AiMagicIcon from "../../public/icons/ai-magic.png";
 import PenToolIcon from "../../public/icons/pen-tool-03.png";
 import ContentWriting from "../../public/icons/content-writing.png";
+import { motion } from "motion/react";
 
 export default function Growth() {
+  // Left-to-Right layout variants
+  const leftToRightVariants = {
+    hidden: { x: -60, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] },
+    },
+  };
+
+  // Right-to-Left layout variants
+  const rightToLeftVariants = {
+    hidden: { x: 60, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] },
+    },
+  };
   return (
     <div className="w-full h-full bg-black relative">
       {/* background image  */}
@@ -27,8 +48,14 @@ export default function Growth() {
         />
       </div>
 
-      <div className="w-auto h-auto flex flex-col gap-6 lg:gap-0 lg:grid grid-cols-10 mx-0 md:mx-10! 2xl:mx-12! py-12! md:py-24! 2xl:py-40! px-6! md:px-0! 2xl:px-10! border-0 md:border-x-2 border-[#1E1E1E]/10 z-10 relative">
-        <div className="col-span-5 2xl:col-span-4 w-auto center-center items-start! flex-col">
+      <div className="w-auto h-auto flex flex-col gap-6 lg:gap-0 lg:grid grid-cols-10 mx-0 md:mx-10! 2xl:mx-12! pt-12! md:pt-20! 2xl:pt-28! pb-6! md:pb-12! 2xl:pb-16! px-6! md:px-0! border-0 md:border-x-2 border-[#1E1E1E]/10 z-10 relative">
+        <motion.div
+          variants={leftToRightVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="col-span-5 2xl:col-span-4 w-auto center-center items-start! flex-col"
+        >
           <Title title={"Business growth"} />
           <div className="center-center text-start items-start! flex-col pt-4! md:pt-8! gap-4">
             <p className="w-full text-[36px] lg:text-[40px] text-white leading-none capitalize">
@@ -42,9 +69,15 @@ export default function Growth() {
             </p>
             <Button text={"explore services"} href={"/"} style={"custom"} />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="col-span-5 2xl:col-span-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
+        <div
+          variants={leftToRightVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="col-span-5 2xl:col-span-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-4"
+        >
           <GrowthCard
             logo={AiMagicIcon}
             heading={"build you brand"}

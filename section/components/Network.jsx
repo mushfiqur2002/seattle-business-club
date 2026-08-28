@@ -1,17 +1,44 @@
+"use client";
 import React from "react";
 import Title from "../../ui/components/Title";
 import NetworkCard from "../../ui/components/NetworkCard";
 import Image01 from "../../public/networkImage01.png";
 import Image03 from "../../public/networkImage02.png";
 import Image02 from "../../public/networkImage03.png";
+import { motion } from "motion/react";
 
 export default function Network() {
+  // Left-to-Right layout variants
+  const leftToRightVariants = {
+    hidden: { y: -60, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] },
+    },
+  };
+
+  // Right-to-Left layout variants
+  const rightToLeftVariants = {
+    hidden: { y: 60, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] },
+    },
+  };
   return (
     <div
       id="network"
-      className="w-auto h-auto mx-0 md:mx-10! 2xl:mx-12! pt-12! md:pt-24! 2xl:pt-40! pb-6! md:pb-12! 2xl:pb-20! border-0 md:border-x-2 border-[#1E1E1E]/10"
+      className="w-auto h-auto mx-0 md:mx-10! 2xl:mx-12! pt-12! md:pt-20! 2xl:pt-28! pb-6! md:pb-12! 2xl:pb-16! border-0 md:border-x-2 border-[#1E1E1E]/10"
     >
-      <div className="w-auto center-center flex-col px-6! md:px-8!">
+      <motion.div
+        variants={leftToRightVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="w-auto center-center flex-col px-6! md:px-8!"
+      >
         <Title title={"Network Events"} />
         <div className="center-center text-center justify-between! flex-col pt-4! md:pt-8! gap-4 lg:gap-0">
           <p className="w-full text-[36px] lg:text-[40px] text-[#1e1e1e] leading-none">
@@ -23,9 +50,15 @@ export default function Network() {
             register.
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="pt-12!">
+      <motion.div
+        variants={rightToLeftVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="pt-12!"
+      >
         <NetworkCard
           date={"aug 14"}
           week={"thu"}
@@ -53,7 +86,7 @@ export default function Network() {
           place={"  Ballard Commons"}
           link={"/"}
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

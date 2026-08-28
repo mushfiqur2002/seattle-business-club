@@ -8,6 +8,16 @@ import ParagraphSplit from "@/animation/ParagraphSplit";
 import TextSplit from "@/animation/TextSplit";
 import { motion } from "motion/react";
 export default function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
   return (
     <div
       id="hero"
@@ -36,7 +46,7 @@ export default function Hero() {
               <TextSplit
                 Tag={"h1"}
                 className={
-                  "uppercase text-[clamp(3.5rem,13vw,250px)] font-extrabold leading-none bg-clip-text text-transparent"
+                  "uppercase text-[clamp(3.5rem,13vw,200px)] font-extrabold leading-none bg-clip-text text-transparent"
                 }
                 text={"seattle"}
                 speed={0.05}
@@ -56,29 +66,70 @@ export default function Hero() {
                   "Seattle Business Club is a media and community platform that helps Seattle businesses get discovered, connected, and grow."
                 }
                 className={
-                  "text-[12px] md:text-[14px] lg:text-[12px] xl:text-[20px] text-white/80 font-thin tracking-wider capitalize pt-6! xl:pt-10! 2xl:pt-12!"
+                  "w-[80%] text-[12px] md:text-[14px] lg:text-[12px] xl:text-[20px] text-white/80 font-thin tracking-wider capitalize pt-6! xl:pt-10! 2xl:pt-12!"
                 }
               />
             </div>
+            {/* 1. Image Container Layer */}
             <motion.div
-              animate={{ rotate: 360 }}
-              className="w-[150px] hidden md:flex h-[180px] sm:h-[140px] lg:h-[130px] xl:h-[180px] 2xl:h-[220px]"
+              initial={{ height: 0 }}
+              animate={{ height: "100%" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} // Smooth cubic-bezier
+              // origin-bottom forces the height expansion to grow from bottom to top
+              className="w-[150px] hidden md:flex h-[180px] sm:h-[140px] lg:h-[130px] xl:h-[180px] 2xl:h-[220px] origin-bottom overflow-hidden"
             >
-              <Image
-                src={BannerImage}
-                alt="banner overlay"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
+              {/* The Image inside scales up from 0 to 1 and rotates simultaneously */}
+              <motion.div
+                initial={{
+                  clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
+                }} // Hidden at the bottom line
+                animate={{
+                  clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                }} // Wipes open up to the top
+                transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }} // Smooth, slow ease-out curve
+                className="w-[200px] hidden md:flex h-[180px] sm:h-[140px] lg:h-[130px] xl:h-[180px] 2xl:h-[220px]"
+              >
+                {/* Nested scaling layer */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
+                  className="w-full h-full"
+                >
+                  <Image
+                    src={BannerImage}
+                    alt="banner overlay"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
-          <div className="flex flex-col md:flex-row gap-4 pt-6! xl:pt-12!">
+          <motion.div
+            variants={{
+              hidden: { y: 40, opacity: 0 },
+              visible: {
+                y: 0,
+                opacity: 1,
+                transition: {
+                  duration: 0.6,
+                  ease: "easeOut",
+                  // Delays the button slide until the image height animation is mostly done
+                  delay: 0.4,
+                },
+              },
+            }}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col md:flex-row gap-4 pt-6! xl:pt-12!"
+          >
             <Button text={"see what we do"} href={"/"} style={"custom"} />
             <Button text={"join the club"} href={"/"} style={"without_arrow"} />
-          </div>
+          </motion.div>
         </div>
 
         {/* OVERLAY BANNER IMAGE FIX */}

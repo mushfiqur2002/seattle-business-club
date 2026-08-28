@@ -2,11 +2,12 @@ import React from "react";
 import Logo from "../../public/icons/logo.png";
 import Image from "next/image";
 import Link from "next/link";
+import TextSplit from "@/animation/TextSplit";
 
 export default function Footer() {
   return (
     <div>
-      <div className="w-auto h-auto center-center flex-col mx-0 md:mx-10! 2xl:mx-12! pt-12! md:pt-24! 2xl:pt-40! pb-6! md:pb-12! 2xl:pb-20! border-0 md:border-x-2 border-[#1E1E1E]/10">
+      <div className="w-auto h-auto center-center flex-col mx-0 md:mx-10! 2xl:mx-12! pt-12! md:pt-20! 2xl:pt-28! pb-6! md:pb-12! 2xl:pb-16! border-0 md:border-x-2 border-[#1E1E1E]/10">
         <div className="w-full lg:w-[95%] h-auto bg-[#000710] center-center flex-col lg:flex-row justify-between! py-12! lg:py-0">
           <div className="center-center flex-col items-start! gap-6 px-8! md:px-12!">
             <Image
@@ -64,11 +65,23 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-full uppercase py-4!">
-          <h1 className="text-[clamp(2rem,15vw,291px)] font-extrabold text-[#1e1e1e] leading-none text-start">
-            Seattle
+          <h1 className="">
+            <TextSplit
+              text={"seattle"}
+              className={
+                "text-[clamp(2rem,15vw,291px)] font-extrabold text-[#1e1e1e] leading-none text-start"
+              }
+              speed={0.03}
+            />
           </h1>
-          <h1 className="text-[clamp(2rem,15vw,291px)] font-extrabold text-[#979BA3] leading-none text-end">
-            Business
+          <h1 className="">
+            <TextSplit
+              text={"Business"}
+              className={
+                "text-[clamp(2rem,15vw,291px)] font-extrabold text-[#979BA3] leading-none text-end"
+              }
+              speed={0.03}
+            />
           </h1>
         </div>
       </div>

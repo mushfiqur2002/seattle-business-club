@@ -3,7 +3,7 @@ import React from "react";
 import Title from "../../ui/components/Title";
 import Button from "../../ui/components/Button";
 import EventCard from "@/ui/components/EventCard";
-import Thump1 from "@/public/4 1.png";
+import Thump1 from "@/public/networkImage01.png";
 import { motion } from "motion/react";
 import Headline from "@/ui/components/Headline";
 

@@ -45,24 +45,24 @@ export default function EventCard({
 
         {/* Text Labels Overlay (Only visible when video is NOT playing) */}
         {!isPlaying && (
-          <div className="w-full h-full absolute top-0 left-0 bg-black/25 z-20 pointer-events-none grid grid-cols-2 place-content-between p-12!">
+          <div className="w-full h-full absolute top-0 left-0 bg-black/25 z-20 pointer-events-none grid grid-cols-2 place-content-between p-8! lg:p-12!">
             {name1 && (
-              <p className="text-white text-[20px] xl:text-[32px] capitalize font-bold">
+              <p className="text-white text-[14px] md:text-[20px] xl:text-[32px] capitalize font-bold">
                 {name1}
               </p>
             )}
             {name2 && (
-              <p className="text-white text-[20px] xl:text-[32px] capitalize text-end font-bold">
+              <p className="text-white text-[14px] md:text-[20px] xl:text-[32px] capitalize text-end font-bold">
                 {name2}
               </p>
             )}
             {name3 && (
-              <p className="text-white text-[20px] xl:text-[32px] capitalize font-bold">
+              <p className="text-white text-[14px] md:text-[20px] xl:text-[32px] capitalize font-bold">
                 {name3}
               </p>
             )}
             {name4 && (
-              <p className="text-white text-[20px] xl:text-[32px] capitalize text-end font-bold">
+              <p className="text-white text-[14px] md:text-[20px] xl:text-[32px] capitalize text-end font-bold">
                 {name4}
               </p>
             )}

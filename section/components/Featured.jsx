@@ -6,6 +6,7 @@ import Image from "next/image";
 import FeaturedCard from "@/ui/components/FeaturedCard";
 import CardImage1 from "@/public/pexels-rachel-claire-5865195 1.png";
 import { motion } from "motion/react";
+import Headline from "@/ui/components/Headline";
 
 export default function Featured() {
   const leftToRightVariants = {
@@ -54,9 +55,7 @@ export default function Featured() {
           className="px-6! md:px-8! 2xl:px-0!"
         >
           <Title title={"featured businesses"} />
-          <p className="w-full text-[36px] lg:text-[40px] pt-4! md:pt-8! text-white leading-none">
-            The names worth knowing this month
-          </p>
+          <Headline header={"The names worth knowing this month"} dark={true} />
         </motion.div>
 
         <motion.div

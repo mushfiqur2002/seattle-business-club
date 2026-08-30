@@ -9,6 +9,7 @@ import AiMagicIcon from "../../public/icons/ai-magic.png";
 import PenToolIcon from "../../public/icons/pen-tool-03.png";
 import ContentWriting from "../../public/icons/content-writing.png";
 import { motion } from "motion/react";
+import Headline from "@/ui/components/Headline";
 
 export default function Growth() {
   // Left-to-Right layout variants
@@ -57,22 +58,21 @@ export default function Growth() {
           className="col-span-5 2xl:col-span-4 w-auto center-center items-start! flex-col"
         >
           <Title title={"Business growth"} />
-          <div className="center-center text-start items-start! flex-col pt-4! md:pt-8! gap-4">
-            <p className="w-full text-[36px] lg:text-[40px] text-white leading-none capitalize">
-              through our creative partner{" "}
-              <span className="text-[#4A5DF9]">seattle creative studio.</span>
-            </p>
-            <p className="text-[16px] text-white/60">
-              Businesses and startups get professional support to build their
+          <div className="center-center text-start items-start! flex-col gap-4">
+            <Headline
+              header={`through our creative partner`}
+              span={`seattle creative studio.`}
+              para={`Businesses and startups get professional support to build their
               brands, design their products, and tell their stories — so growth
-              isn’t left to chance.
-            </p>
+              isn’t left to chance.`}
+              dark={true}
+            />
             <Button text={"explore services"} href={"/"} style={"custom"} />
           </div>
         </motion.div>
 
-        <div
-          variants={leftToRightVariants}
+        <motion.div
+          variants={rightToLeftVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -93,7 +93,7 @@ export default function Growth() {
             heading={"Tell Your Story"}
             paragraph={"Videos & content."}
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

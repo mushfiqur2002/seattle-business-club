@@ -5,6 +5,7 @@ import Button from "../../ui/components/Button";
 import EventCard from "@/ui/components/EventCard";
 import Thump1 from "@/public/4 1.png";
 import { motion } from "motion/react";
+import Headline from "@/ui/components/Headline";
 
 export default function Event() {
   const leftToRightVariants = {
@@ -36,16 +37,14 @@ export default function Event() {
         >
           <Title title={"Event Coverage"} />
         </motion.div>
-        <div className="center-center justify-between! items-start! lg:items-center! flex-col lg:flex-row pt-4! md:pt-8! gap-4 lg:gap-0">
+        <div className="center-center justify-between! items-start! lg:items-center! flex-col lg:flex-row gap-4 lg:gap-0">
           <motion.div
             variants={leftToRightVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <p className="w-full text-[36px] lg:text-[40px] text-[#1e1e1e] leading-none">
-              We bring a camera and guest list
-            </p>
+            <Headline header={"We bring a camera and guest list"} />
           </motion.div>
           <motion.div
             variants={rightToLeftVariants}

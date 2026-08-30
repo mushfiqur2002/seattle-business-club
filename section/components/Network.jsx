@@ -6,6 +6,7 @@ import Image01 from "../../public/networkImage01.png";
 import Image03 from "../../public/networkImage02.png";
 import Image02 from "../../public/networkImage03.png";
 import { motion } from "motion/react";
+import Headline from "@/ui/components/Headline";
 
 export default function Network() {
   // Left-to-Right layout variants
@@ -40,16 +41,12 @@ export default function Network() {
         className="w-auto center-center flex-col px-6! md:px-8!"
       >
         <Title title={"Network Events"} />
-        <div className="center-center text-center justify-between! flex-col pt-4! md:pt-8! gap-4 lg:gap-0">
-          <p className="w-full text-[36px] lg:text-[40px] text-[#1e1e1e] leading-none">
-            Come meet the people{" "}
-            <span className="text-[#4A5DF9]">building Seattle</span>
-          </p>
-          <p className="text-[16px] text-[#1e1e1] lg:pt-4!">
-            Talks, workshops, and mixers. Click any event for details and to
-            register.
-          </p>
-        </div>
+        <Headline
+          header={`Come meet the people`}
+          span={`building Seattle`}
+          para={`Talks, workshops, and mixers. Click any event for details and to register.`}
+          center={true}
+        />
       </motion.div>
 
       <motion.div

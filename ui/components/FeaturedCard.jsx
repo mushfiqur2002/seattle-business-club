@@ -5,7 +5,7 @@ import Title from "./Title";
 export default function FeaturedCard({ image, title, heading, paragraph }) {
   return (
     <div className="w-full h-full flex flex-col">
-      <div className="w-full h-[200px]">
+      <div className="w-full h-[150px] lg:h-[180px]">
         <Image
           src={image}
           alt="image1"
@@ -18,8 +18,12 @@ export default function FeaturedCard({ image, title, heading, paragraph }) {
       </div>
       <div className="w-full h-full bg-[rgba(255,255,255,.1)] backdrop-blur-xl                                                                           p-[20px]! border border-white/10">
         <Title title={title} />
-        <p className="text-[24px] text-white pt-[24px]!">{heading}</p>
-        <p className="text-[16px] text-white/60 pt-[12px]!">{paragraph}</p>
+        <p className="text-[18px] lg:text-[24px] text-white pt-2! md:pt-4! lg:pt-[24px]!">
+          {heading}
+        </p>
+        <p className="text-[12px] lg:text-[16px] text-white/60 pt-1! md:pt-2! lg:pt-[12px]!">
+          {paragraph}
+        </p>
       </div>
     </div>
   );

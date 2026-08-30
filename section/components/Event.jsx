@@ -51,7 +51,7 @@ export default function Event() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="w-full center-center justify-end!"
+            className="w-full center-center justify-start! lg:justify-end! mt-2! lg:mt-0!"
           >
             <Button text={"explore events"} style={"blue_default"} href={"/"} />
           </motion.div>

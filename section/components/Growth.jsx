@@ -76,7 +76,7 @@ export default function Growth() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="col-span-5 2xl:col-span-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-4"
+          className="col-span-5 2xl:col-span-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-4"
         >
           <GrowthCard
             logo={AiMagicIcon}
